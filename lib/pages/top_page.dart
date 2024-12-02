@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase/pages/setting_profile_page.dart';
 import 'package:flutter_firebase/pages/talk_room_page.dart';
 import '../model/user.dart';
 
@@ -28,9 +29,17 @@ class _TopPageState extends State<TopPage>{
     return Scaffold(
       appBar: AppBar(
         title: Center(
-        child:
-        Text("CHAT APP", style: TextStyle(color: Colors.white)),
-        ),
+              child:
+              Text("CHAT APP", style: TextStyle(color: Colors.white)),
+              ),
+        actions: [
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => SettingProfilePage(),
+            ));
+          },
+              icon: const Icon(Icons.settings))
+        ],
         backgroundColor: Colors.teal
       ),
       body: ListView.builder(
